@@ -9,21 +9,21 @@ namespace ListaTarefas;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
 
         CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
         CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
         builder
-			.UseMauiApp<App>()
+            .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			})
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            })
             .RegisterViews()
             .RegisterAppServices();
 
@@ -34,8 +34,8 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
-	}
+        return builder.Build();
+    }
 
     public static string GetDatabasePath()
     {
@@ -43,19 +43,6 @@ public static class MauiProgram
         var databaseName = "Database.db3";
 
         if (DeviceInfo.Platform == DevicePlatform.Android)
-        {
-            databasePath = Path.Combine(FileSystem.AppDataDirectory, databaseName);
-        }
-        else if (DeviceInfo.Platform == DevicePlatform.iOS)
-        {
-            SQLitePCL.Batteries_V2.Init();
-            databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", databaseName); ;
-        }
-        else if (DeviceInfo.Platform == DevicePlatform.MacCatalyst)
-        {
-            databasePath = Path.Combine(FileSystem.AppDataDirectory, databaseName);
-        }
-        else if (DeviceInfo.Platform == DevicePlatform.WinUI)
         {
             databasePath = Path.Combine(FileSystem.AppDataDirectory, databaseName);
         }
