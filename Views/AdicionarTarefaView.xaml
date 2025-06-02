@@ -2,11 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListaTarefas.Views.AdicionarTarefaView"
-             Title="AdicionarTarefaView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <Grid Margin="0, 0, 0, 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
+
+        <!--HEADER-->
+        <Label Text="Adicionar tarefa"
+                  FontAttributes="Bold"
+                  FontSize="24"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Center"
+                  TextColor="#000"
+                  Margin="-20, 0, 0, 0"              
+                  Grid.Row="0"
+                  Grid.Column="0"/>
+
+        <Border x:Name="LinhaHeader"
+               HeightRequest="1"
+               WidthRequest="800"
+               BackgroundColor="#000"
+               Margin="0, -200, 0, 0"
+               Grid.Column="0"
+               Grid.Row="1"/>
+        <!--FIM HEADER-->
+
+        <Entry x:Name="EntryDescricao"
+               TextChanged="EntryDescricao_TextChanged"
+               Margin="-5, -400, 0, 0"
+               BackgroundColor="LightGray"               
+               Grid.Column="0"
+               Grid.Row="2"
+               
+               WidthRequest="350"
+               HeightRequest="100"/>
+
+        <Button x:Name="BtnSalvar"
+                BackgroundColor="Green"
+                Released="BtnSalvar_Released"
+                TextColor="White"
+                Text="Salvar"
+                FontSize="25"
+                HeightRequest="90"
+                WidthRequest="250"
+                Grid.Column="0"
+                Grid.Row="2"
+                Margin="0, 100, 0, 0"/>
+    </Grid>
+
 </ContentPage>
