@@ -50,24 +50,41 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
-                            <!-- Label com binding direto à Descricao -->
-                            <Label Text="{Binding DescricaoTarefa}"
-                                   VerticalOptions="Center"
-                                   FontSize="16"
-                                   TextColor="Black"
-                                   Margin="0, 0, 0, 0"/>
-                            <!-- Checkbox com binding correto -->
-                            <CheckBox BindingContext="{Binding Id}"
-                                      IsChecked="False"
-                                      CheckedChanged="CheckboxConcluir_CheckedChanged"
-                                      HeightRequest="15"
-                                      WidthRequest="15"
-                                      VerticalOptions="Center"
-                                      HorizontalOptions="Center"
-                                      Margin="0, 0, 0, 0"
-                                      Color="Green"/>
-                        </StackLayout>
+                        <Grid BackgroundColor="White"
+                              HeightRequest="100"
+                              WidthRequest="600">
+                            <Grid BackgroundColor="#fff">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <!-- Label com binding direto à Descricao -->
+                                <Label Text="{Binding DescricaoTarefa}"
+                                       VerticalOptions="Center"
+                                       FontSize="16"
+                                       TextColor="Black"
+                                       Margin="140, 0, 0, 0"
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <!-- Checkbox com binding correto -->
+                                <CheckBox BindingContext="{Binding Id}"
+                                          IsChecked="False"
+                                          CheckedChanged="CheckboxConcluir_CheckedChanged"
+                                          HeightRequest="15"
+                                          WidthRequest="15"
+                                          VerticalOptions="Center"
+                                          HorizontalOptions="Center"
+                                          Margin="0, 0, 0, 0"
+                                          Color="Green"
+                                          Grid.Row="0"
+                                          Grid.Column="1"/>
+                            </Grid>
+                        </Grid>
                     </ViewCell>
                     <!--<Grid x:Name="GridListView1"
                              BackgroundColor="White"

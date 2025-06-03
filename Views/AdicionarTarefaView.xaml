@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListaTarefas.Views.AdicionarTarefaView"
              NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
              BackgroundColor="White">
 
     <Grid Margin="0, 0, 0, 0">
@@ -11,37 +12,47 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="200*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
         <!--HEADER-->
         <Label Text="Adicionar tarefa"
-                  FontAttributes="Bold"
-                  FontSize="24"
-                  VerticalOptions="Center"
-                  HorizontalOptions="Center"
-                  TextColor="#000"
-                  Margin="-20, 0, 0, 0"              
-                  Grid.Row="0"
-                  Grid.Column="0"/>
+               FontAttributes="Bold"
+               FontSize="24"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="#000"
+               Margin="-20, -60, 0, 0"              
+               Grid.Row="0"
+               Grid.Column="0"/>
 
         <Border x:Name="LinhaHeader"
-               HeightRequest="1"
-               WidthRequest="800"
-               BackgroundColor="#000"
-               Margin="0, -200, 0, 0"
-               Grid.Column="0"
-               Grid.Row="1"/>
+                HeightRequest="1"
+                WidthRequest="800"
+                BackgroundColor="#000"
+                Margin="0, -200, 0, 0"
+                Grid.Column="0"
+                Grid.Row="1"/>
         <!--FIM HEADER-->
+
+        <Label Text="Descrição:"
+               FontAttributes="Bold"
+               FontSize="20"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               TextColor="Black"
+               Margin="15, 0, 0, 70"
+               Grid.Row="2"
+               Grid.Column="0"/>
 
         <Entry x:Name="EntryDescricao"
                TextChanged="EntryDescricao_TextChanged"
-               Margin="-5, -400, 0, 0"
-               BackgroundColor="LightGray"               
+               Margin="-5, -470, 0, 0"
+               BackgroundColor="White"               
                Grid.Column="0"
-               Grid.Row="2"
-               
+               Grid.Row="3"               
                WidthRequest="350"
                HeightRequest="100"/>
 
@@ -55,7 +66,7 @@
                 WidthRequest="250"
                 Grid.Column="0"
                 Grid.Row="2"
-                Margin="0, 100, 0, 0"/>
+                Margin="0, 500, 0, 0"/>
     </Grid>
 
 </ContentPage>

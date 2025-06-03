@@ -28,9 +28,16 @@ public partial class AdicionarTarefaView : ContentPage
 
     async void BtnSalvar_Released(object sender, EventArgs e)
     {
-        await _contexto.Tarefas.AddAsync(Tarefa);
-        await _contexto.SaveChangesAsync();
+        if (!String.IsNullOrEmpty(Tarefa.Descricao))
+        {
+            await _contexto.Tarefas.AddAsync(Tarefa);
+            await _contexto.SaveChangesAsync();
 
-        await Navigation.PopToRootAsync();
+            await Navigation.PopToRootAsync();
+        }
+        else
+        {
+            await DisplayAlert("Falha ao salvar", "Descrição não pode ser vazia", "Ok");
+        }
     }
 }
