@@ -71,7 +71,7 @@
                                        Margin="140, 0, 0, 0"
                                        Grid.Row="0"
                                        Grid.Column="0"/>
-                                <!-- Checkbox com binding correto -->
+                                <!-- Checkbox com binding no Id, para pegar a tarefa -->
                                 <CheckBox BindingContext="{Binding Id}"
                                           IsChecked="False"
                                           CheckedChanged="CheckboxConcluir_CheckedChanged"
